@@ -41,7 +41,14 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config, {
     ignoreGlobalPrefix: true,
   });
-  SwaggerModule.setup('api', app, document);
+  const swaggerUiCdn = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.13';
+  SwaggerModule.setup('api', app, document, {
+    customCssUrl: `${swaggerUiCdn}/swagger-ui.css`,
+    customJs: [
+      `${swaggerUiCdn}/swagger-ui-bundle.js`,
+      `${swaggerUiCdn}/swagger-ui-standalone-preset.js`,
+    ],
+  });
 
   await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
