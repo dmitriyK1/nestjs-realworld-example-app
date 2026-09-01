@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: nestjs-realworld-example-app
+    runtime: node
+    plan: free
+    buildCommand: pnpm install && pnpm run build
+    startCommand: pnpm run start:prod
