@@ -44,6 +44,12 @@ importers:
       '@prisma/client-runtime-utils':
         specifier: 7.9.1
         version: 7.9.1
+      '@prisma/debug':
+        specifier: 7.9.1
+        version: 7.9.1
+      '@prisma/driver-adapter-utils':
+        specifier: 7.9.1
+        version: 7.9.1
       bcryptjs:
         specifier: ^3.0.3
         version: 3.0.3

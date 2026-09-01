@@ -13,10 +13,15 @@
     "@prisma/client",
     "@prisma/adapter-pg",
     "@prisma/client-runtime-utils",
+    "@prisma/driver-adapter-utils",
+    "@prisma/debug",
   ]
   included_files = [
     "node_modules/@prisma/client/**",
     "node_modules/@prisma/client-runtime-utils/**",
+    "node_modules/@prisma/adapter-pg/**",
+    "node_modules/@prisma/driver-adapter-utils/**",
+    "node_modules/@prisma/debug/**",
   ]
 
 [[redirects]]
