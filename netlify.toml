@@ -10,7 +10,10 @@
     "@fastify/view",
     "class-transformer",
     "@nestjs/websockets",
+    "@prisma/client",
+    "@prisma/adapter-pg",
   ]
+  included_files = ["node_modules/@prisma/client/**"]
 
 [[redirects]]
   from = "/api/*"
