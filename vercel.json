@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/**/*.ts": {
+    "src/main.ts": {
       "includeFiles": "node_modules/swagger-ui-dist/**"
     }
   }
