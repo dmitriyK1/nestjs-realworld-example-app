@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Put, Request, UseGuards } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Inject,
+  Put,
+  Request,
+  UseGuards,
+} from '@nestjs/common';
 import {
   ApiBearerAuth,
   ApiBody,
@@ -18,8 +26,8 @@ import { UserService } from './user.service';
 @Controller('user')
 export class UserController {
   constructor(
-    private userService: UserService,
-    private authService: AuthService,
+    @Inject(UserService) private userService: UserService,
+    @Inject(AuthService) private authService: AuthService,
   ) {}
 
   @ApiOperation({

@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   HttpCode,
+  Inject,
   Post,
   Request,
   UseGuards,
@@ -18,8 +19,8 @@ import { UsersService } from './users.service';
 @ApiTags('User and Authentication')
 export class UsersController {
   constructor(
-    private usersService: UsersService,
-    private authService: AuthService,
+    @Inject(UsersService) private usersService: UsersService,
+    @Inject(AuthService) private authService: AuthService,
   ) {}
 
   @ApiOperation({
