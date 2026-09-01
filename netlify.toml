@@ -3,6 +3,16 @@
   publish = "public"
   functions = "netlify/functions"
 
+[functions]
+  external_node_modules = [
+    "@nestjs/microservices",
+    "@nestjs/platform-express",
+    "@fastify/view",
+    "class-transformer",
+    "@nestjs/websockets",
+    "argon2",
+  ]
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/api/:splat"
