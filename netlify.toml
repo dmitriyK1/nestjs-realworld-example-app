@@ -11,8 +11,9 @@
     "class-transformer",
     "@nestjs/websockets",
     "argon2",
+    "@phc/format",
   ]
-  included_files = ["node_modules/argon2/**"]
+  included_files = ["node_modules/argon2/**", "node_modules/@phc/**"]
 
 [[redirects]]
   from = "/api/*"
