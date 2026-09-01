@@ -5,7 +5,7 @@ import {
   refreshDatabase,
 } from '../db-test-base';
 import { AuthService } from './auth.service';
-import { hash } from 'argon2';
+import { hash } from 'bcryptjs';
 import { PrismaService } from '../prisma/prisma.service';
 
 describe('UsersService', () => {
@@ -41,7 +41,7 @@ describe('UsersService', () => {
       data: {
         email: 'john.doe@example.com',
         name: 'John Doe',
-        password: await hash('password'),
+        password: await hash('password', 10),
       },
     });
 
@@ -54,7 +54,7 @@ describe('UsersService', () => {
       data: {
         email: 'john.doe@example.com',
         name: 'John Doe',
-        password: await hash('password'),
+        password: await hash('password', 10),
       },
     });
 

@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { PrismaClient } from '../src/generated/prisma/client';
-import { hash } from 'argon2';
+import { hash } from 'bcryptjs';
 import { capitalize } from 'lodash';
 import { UniqueEnforcer } from 'enforce-unique';
 import { PrismaPg } from '@prisma/adapter-pg';
@@ -18,7 +18,7 @@ async function main() {
   await prisma.followerUser.deleteMany();
   await prisma.user.deleteMany();
 
-  const password = await hash('password');
+  const password = await hash('password', 10);
 
   await prisma.user.createMany({
     data: Array.from({ length: 50 }, () => ({

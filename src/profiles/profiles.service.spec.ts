@@ -5,7 +5,7 @@ import {
   refreshDatabase,
 } from '../db-test-base';
 import { ProfilesService } from './profiles.service';
-import { hash } from 'argon2';
+import { hash } from 'bcryptjs';
 import { UserService } from '../user/user.service';
 import { Prisma } from '../generated/prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
@@ -32,7 +32,7 @@ describe('ProfilesService', () => {
       data: {
         name: 'John Doe',
         email: 'john.doe@example.com',
-        password: await hash('password'),
+        password: await hash('password', 10),
         bio: 'My Bio',
         image: 'https://i.pravatar.cc/300',
       },
@@ -71,7 +71,7 @@ describe('ProfilesService', () => {
               create: {
                 name: 'Jane Doe',
                 email: 'jane.doe@example.com',
-                password: await hash('password'),
+                password: await hash('password', 10),
                 bio: 'My Bio',
                 image: 'https://i.pravatar.cc/300',
               },
@@ -139,7 +139,7 @@ describe('ProfilesService', () => {
                 create: {
                   name: 'Jane Doe',
                   email: 'jane.doe@example.com',
-                  password: await hash('password'),
+                  password: await hash('password', 10),
                 },
               },
             },
@@ -148,7 +148,7 @@ describe('ProfilesService', () => {
                 create: {
                   name: 'Alice',
                   email: 'alice@example.com',
-                  password: await hash('password'),
+                  password: await hash('password', 10),
                 },
               },
             },

@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { hash } from 'argon2';
+import { hash } from 'bcryptjs';
 import { NewUserDTO } from './dto/register.dto';
 import { PrismaService } from '../prisma/prisma.service';
 
@@ -16,7 +16,7 @@ export class UsersService {
       data: {
         name: dto.username,
         email: dto.email,
-        password: await hash(dto.password),
+        password: await hash(dto.password, 10),
       },
     });
   }

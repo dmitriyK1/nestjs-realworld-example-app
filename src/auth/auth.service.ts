@@ -1,4 +1,4 @@
-import { verify } from 'argon2';
+import { compare } from 'bcryptjs';
 import { JwtService } from '@nestjs/jwt';
 import { UserDTO } from '../user/dto/current-user.dto';
 import { Injectable } from '@nestjs/common';
@@ -19,7 +19,7 @@ export class AuthService {
       return null;
     }
 
-    if (!(await verify(user.password, password))) {
+    if (!(await compare(password, user.password))) {
       return null;
     }
 

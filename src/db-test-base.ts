@@ -3,7 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { Test, TestingModule } from '@nestjs/testing';
 import { PrismaClient, User } from './generated/prisma/client';
-import { hash } from 'argon2';
+import { hash } from 'bcryptjs';
 import { PrismaModule } from './prisma/prisma.module';
 
 export const initializeDbTestBase = async (metadata: ModuleMetadata) => {
@@ -40,7 +40,7 @@ export const createUser = async (
     data: {
       email: 'john.doe@example.com',
       name: 'John Doe',
-      password: await hash('password'),
+      password: await hash('password', 10),
       ...data,
     },
   });
