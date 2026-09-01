@@ -12,6 +12,7 @@
     "@nestjs/websockets",
     "argon2",
   ]
+  included_files = ["node_modules/argon2/**"]
 
 [[redirects]]
   from = "/api/*"
